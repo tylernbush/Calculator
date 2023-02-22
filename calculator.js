@@ -6,7 +6,7 @@ let firststring = '';
 
 
 
-
+//inputs number pressed into display field
 function input(value) {
     inputstring +=  value
     document.querySelector('.display').value = inputstring
@@ -14,13 +14,14 @@ function input(value) {
 };
 
 
+//takes operator pressed, saves it. Also saves first value and clears inputstring to clear field.
 function operator(operator) {
     operatorstring = operator;
     firststring = document.querySelector('.display').value;
     inputstring = '';
 };
 
-
+//operations
 function add(a,b) {
 	return (a + b);
 };
@@ -37,6 +38,7 @@ function divide(a,b) {
     return (a / b);
 };
 
+//
 function clearfield() {
     inputstring = '';
     operatorstring = '';
@@ -60,8 +62,12 @@ function operation() {
             result = multiply(a,b);
             break;
         case '÷':
-            if (b === 0) result = null;
-            result = divide(a,b);
+            if (b === 0) {   
+                result = null;
+            }
+            else {
+                result = divide(a,b); 
+            }
             break;
         default:
             break;
